@@ -11,10 +11,11 @@ class DepartmentController extends Controller
 {
     //
 
-    public function index(){
+    public function index($department){
     	
-    	$user = User::all();
-    	$data = $user;
+    	$user = User::where($department,1)->get();
+    	$data['user'] = $user;
+    	$data['i'] = 0;
 
     	return view('departments.department',$data);
     }

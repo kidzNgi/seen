@@ -21,7 +21,7 @@ class PersonalController extends Controller
         //
 
         $users = User::select('id as user_id','first_name','last_name',''.$value.' as personal')->get();
-        $data['a'] = $users;
+        $data['users'] = $users;
         $data['value'] = $value;
 
         return view('admin.personal.personal',$data);

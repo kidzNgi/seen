@@ -51,7 +51,7 @@ Route::post('editPublished','user\PortfolioController@updatePublished');
 Route::delete('Published/{num?}','user\PortfolioController@deletePublished');
 
 
-Route::get('envi','user\DepartmentController@index');
+Route::get('Department/{string?}','user\DepartmentController@index');
 
 /*Test*/
 Route::get('test', function() {

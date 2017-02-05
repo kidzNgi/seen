@@ -1,40 +1,36 @@
 @extends('layouts.site')
-@section('centent')
 @push('styles')
 <style type="text/css">
-
-small {
-display: block;
-line-height: 1.428571429;
-color: #999;
-}
-#card {
-  margin-top: 50px;
-  background: #f0fff0;
-  padding: 3em;
-  line-height: 1.5em; }
+    
+</style>
+<link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
 </style>
 @endpush
 @section('content')
     <div class="container" style="padding-top: 100px;">
-    <div class="#card">
+    
+    <div class="panel panel-default">
+    <div class="panel-heading">a</div>
+    <div class="panel-body">
     <div class="row">
-        @foreach($user as $row)
-        <div class="col-xs-12 col-sm-6 col-md-6">
+    @foreach($user as $row)
+        <div class="col-sm-12 col-md-6">
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
-                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                        <img src="{{asset("images/users/".$row->image)}}" alt="" class="img-rounded img-responsive" style="height: 250;" />
                     </div>
-                    <div class="col-sm-6 col-md-8"> <h4>{{$row->first_name.' '.$row->last_name}}</h4>
-                        <small><cite title="San Francisco, USA">{{$row->first_name}}<i class="glyphicon glyphicon-map-marker">
-                        </i></cite></small>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>{{$row->first_name.' '.$row->last_name}}</h4>
+                        <small>{{$row->first_name_eng.' '.$row->last_name_eng}}
+                        </small>
+                        <hr style="margin-top: 10;margin-bottom: 10">
                         <p>
-                            <i class="glyphicon glyphicon-envelope"></i>email@example.com
+                            <span class="glyphicon glyphicon-envelope"></span> {{$row->email}}
                             <br />
-                            <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                            <span class="glyphicon glyphicon-phone"></span> {{$row->tel}}
                             <br />
-                            <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
+                            <span class="glyphicon glyphicon-phone-alt"></span> {{$row->tel_in}}</p>
                         <!-- Split button -->
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary">
@@ -54,7 +50,9 @@ color: #999;
                 </div>
             </div>
         </div>
-    @endforeach
+         @endforeach
+      </div>
+      </div>
     </div>
 </div>
-
+  

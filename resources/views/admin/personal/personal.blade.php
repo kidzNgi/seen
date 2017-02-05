@@ -17,7 +17,8 @@
 		<form class="form-horizontal" action="{{url('Personal/'.$value)}}" method="post">
 		{{csrf_field()}}
 			<div class="panel panel-default">
-				<div class="panel-heading" >บุคลากร<p class="pull-right visible-xs">
+				<div class="panel-heading" >บุคลากร
+				<p class="pull-right visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">MENU</button>
           		</p></div>
 				<div class="panel-body" style="padding: 2em;">
@@ -66,7 +67,6 @@
 
 
     <div class=" col-sm-3 sidebar-offcanvas" id="sidebar">
-	  <div class="list-group">
         <a id='executive' href="{{url('Personal/executive')}}" class="list-group-item">ผู้บริหาร</a>
         <a id='envi' href="{{url('Personal/envi')}}" class="list-group-item">วิศวกรรมสิ่งแวดล้อม</a>
         <a id='sci' href="{{url('Personal/sci')}}" class="list-group-item">วิทยาศาสตร์สิ่งแวดล้อม</a>
@@ -86,7 +86,7 @@ $(document).ready(function () {
   $('[data-toggle="offcanvas"]').click(function () {
     $('.row-offcanvas').toggleClass('active')
   });
-  $('#{{$value}}').toggleClass('active') 
+
 });
 
 </script>
