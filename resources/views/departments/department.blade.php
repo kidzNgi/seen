@@ -18,7 +18,7 @@
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
-                        <img src="{{asset("images/users/".$row->image)}}" alt="" class="img-rounded img-responsive" style="height: 250;" />
+                        <img src="{{asset("images/users/".$row->image)}}" alt="" class="img-rounded img-responsive" style="height: 200;" />
                     </div>
                     <div class="col-sm-6 col-md-8">
                         <h4>{{$row->first_name.' '.$row->last_name}}</h4>
@@ -26,6 +26,8 @@
                         </small>
                         <hr style="margin-top: 10;margin-bottom: 10">
                         <p>
+                            <span class="glyphicon glyphicon-user"></span> {{$row->position_name}}
+                            <br />
                             <span class="glyphicon glyphicon-envelope"></span> {{$row->email}}
                             <br />
                             <span class="glyphicon glyphicon-phone"></span> {{$row->tel}}

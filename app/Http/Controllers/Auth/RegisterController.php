@@ -87,8 +87,6 @@ class RegisterController extends Controller
             'tel_in' => $data['tel_in'],
             'research_gate' => $data['research_gate'],
             'image' => $imageName,
-            'executive' => 1,
-
 
          ]);
        

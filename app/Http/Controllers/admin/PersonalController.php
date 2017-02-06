@@ -8,10 +8,16 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Staff;
 use App\Position;
+use Illuminate\Support\Facades\Auth;
  
 
 class PersonalController extends Controller
 {
+
+        public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,12 +27,18 @@ class PersonalController extends Controller
     {
         //
 
-        $users = User::select('id as user_id','first_name','last_name',''.$value.' as personal')->get();
+                if(Auth::user()->privileges_name=='ผู้ดูแลระบบ')
+        {
+           
+        $users = User::leftJoin('staffs','users.id','=','staffs.user_id')->select('users.id as user_id','first_name','last_name',''.$value.' as personal','staffs.position_id')->get();
         $data['users'] = $users;
         $data['value'] = $value;
         $position = Position::all();
         $data['position'] = $position;
         return view('admin.personal.personal',$data);
+        }
+        return redirect('index');
+        
     }
 
     
@@ -60,15 +72,30 @@ class PersonalController extends Controller
                     if($key->count==0){
                         $facs= DB::table('facuties')->where('facuty',$field)->get(); 
                     foreach ($facs as $fac) {
-                            Staff::create([
+/*                        $this->validate($request,[
+                            'position_id['.$i.']' => 'required',
+                            ],['position_id['.$i.'].required' => 'กรุณาเลือก',]);*/
+                        $ob = new Staff();
+                        $ob->user_id = $request['userid'][$i];
+                        $ob->facuty_id = $fac->id;
+                        $ob->position_id = $request['position_id'][$i];
+                        $ob->save();
+                            /*Staff::create([
                     'user_id' =>$request['userid'][$i],
 
                     
                 
                     'facuty_id' => $fac->id,
                     'position_id' => $pos,
-                      ]);
+                      ]);*/
                     }
+                        }
+
+                    else{
+                            $ob2 = Staff::where('user_id','=',$request['userid'][$i]);
+/*                            $ob2->position_id = $request['position_id'][$i];*/
+
+                            $ob2->update(['position_id' => $request['position_id'][$i] ? $request['position_id'][$i] : null]);
                         }
                     }
                        

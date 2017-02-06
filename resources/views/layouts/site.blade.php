@@ -129,7 +129,11 @@ footer {
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">บุคลากรคณะ <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                        <li><a href="#">   </a></li>
+                        <li><a href="{{url('Department/executive')}}">คณะผู้บริหาร</a></li>
+                        <li><a href="{{url('Department/envi')}}">สาขาวิศวกรรมสิ่งแวดล้อม</a></li>
+                        <li><a href="{{url('Department/sci')}}">สาขาวิทยาศาสตร์สิ่งแวกล้อม</a></li>
+                        <li><a href="{{url('Department/energy')}}">สาขาพลังงานทดแทน</a></li>
+                        <li><a href="{{url('Department/energy')}}">สำนักงานวิทยาลัยพลังงานและสิ่งแวดล้อม</a></li>
                   </ul>
                 </li>
 

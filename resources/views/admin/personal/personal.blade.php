@@ -45,13 +45,27 @@
                 
 							   	</td>
 							   	<td>
-							   		<select class="form-control" id="position_id" name="position_id" >
-							   				<option value="">เลือกตำแหน่ง</option>
+							   	<div class="form-group{{ $errors->has('position_id['.$i.']') ? ' has-error' : '' }}">
+                            		<div class="col-md-6">
+                            		<select class="form-control" id="position_id[]" name="position_id[]" >
+							   				<option value="{{ old('position_id['.$i.']') }}">เลือกตำแหน่ง</option>
 							   		   @foreach($position as $pos)
-
-									    <option value='{{$pos->id}}'>{{$pos->position_name}}</option>
+										    <option value=' {{$pos->id}}' 
+										    @if($pos->id==$users[$i]->position_id)
+										    selected
+										    @endif>
+										    {{$pos->position_name}}
+										    </option>
 									    @endforeach
 									 </select>
+
+                                	@if ($errors->has('position_id['.$i.']'))
+                                    	<span class="help-block">
+                                        <strong>{{ $errors->first('position_id['.$i.']') }}</strong>
+                                    	</span>
+                                	@endif
+                            		</div>
+                        		</div>
 							   	</td>
 							    
 							

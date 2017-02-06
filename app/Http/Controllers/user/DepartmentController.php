@@ -20,7 +20,7 @@ class DepartmentController extends Controller
     				   leftJoin('positions','staffs.position_id','=','positions.id')->
     				   select('users.*','positions.position_name','facuties.facuty_th')->
     				   where('facuties.facuty',$department)->
-    				   orderBy('staffs.position_id','desc')->
+    				   orderBy('staffs.position_id','asc')->
     				   get();
     				 
 
