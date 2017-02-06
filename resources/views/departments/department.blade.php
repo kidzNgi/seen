@@ -18,7 +18,7 @@
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
-                        <img src="{{asset("images/users/".$row->image)}}" alt="" class="img-rounded img-responsive" style="height: 200;" />
+                        <img src="{{asset("images/users/".$row->image)}}" alt="" class="img-rounded img-responsive" style="height: 250;" />
                     </div>
                     <div class="col-sm-6 col-md-8">
                         <h4>{{$row->first_name.' '.$row->last_name}}</h4>
