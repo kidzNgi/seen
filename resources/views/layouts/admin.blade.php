@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title></title>
+	<title>Admin</title>
 	  <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('fonts/font-awesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin.css')}}">
 </head>
 <body>
+@section('sidebar')
+        @show
 <div class="wrap">
   <nav class="nav-bar navbar-inverse" role="navigation">
       <div id ="top-menu" class="container-fluid active">
@@ -33,6 +35,8 @@
           </ul>
       </div>      
   </nav>
+  @section('sidebar')
+        
   <aside id="side-menu" class="aside" role="navigation">            
         <ul class="nav nav-list accordion">                    
           <li class="nav-header">
@@ -81,7 +85,7 @@
           
       </ul>
   </aside>
-  
+  @show
   <!--Body content-->
   <div class="content">
     <div class="top-bar">       
@@ -92,8 +96,7 @@
       </a>      
     </div>
     <section class="content-inner">
-      <h2>Sample</h2>
-      <h3>A responsive Top and Side Menu, resize your browser to find out</h3>
+     @yield('content')
     </section>
   </div>  
   

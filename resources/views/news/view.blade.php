@@ -45,13 +45,7 @@
 					<div class="details col-md-6">
 						<h3 class="product-title">{{$objs->title}}</h3>
 						<div class="rating">
-							<div class="stars">
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
+
 	
 
 							<span class="review-no"><i class="glyphicon glyphicon-calendar"></i> {{date("Y-m-d", strtotime($objs->created_at))}} 

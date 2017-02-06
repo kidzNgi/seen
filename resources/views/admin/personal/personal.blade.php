@@ -49,10 +49,10 @@
                 <div class="col-md-6">
 <!-- 							   	</td>
 <td> -->
-							   	<div class="form-group{{ $errors->has('position_id['.$i.']') ? ' has-error' : '' }}">
+							   	<div class="form-group">
                             		
                             		<select class="form-control" id="position_id[]" name="position_id[]" >
-							   				<option value="{{ old('position_id['.$i.']') }}">เลือกตำแหน่ง</option>
+							   				<option value="">เลือกตำแหน่ง</option>
 							   		   @foreach($position as $pos)
 										    <option value=' {{$pos->id}}' 
 										    @foreach($staff as $sta)
@@ -68,11 +68,7 @@
 									    @endforeach
 									 </select>
 
-                                	@if ($errors->has('position_id['.$i.']'))
-                                    	<span class="help-block">
-                                        <strong>{{ $errors->first('position_id['.$i.']') }}</strong>
-                                    	</span>
-                                	@endif
+                                	
                             		</div>
                         		</div>
                				

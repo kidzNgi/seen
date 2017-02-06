@@ -27,14 +27,16 @@ class PersonalController extends Controller
     {
         //
 
+        $field = $value;
+
                 if(Auth::user()->privileges_name=='ผู้ดูแลระบบ')
         {
         
-        $users = User::select('users.id as user_id','first_name','last_name',$value.' as personal')->get();
-        $staff = Staff::leftJoin('facuties','staffs.facuty_id','=','facuties.id')->where('facuties.facuty',$value)->get();
+        $users = User::select('users.id as user_id','first_name','last_name',$field.' as personal')->get();
+        $staff = Staff::leftJoin('facuties','staffs.facuty_id','=','facuties.id')->where('facuties.facuty',$field)->get();
         $data['staff'] = $staff;
         $data['users'] = $users;
-        $data['value'] = $value;
+        $data['value'] = $field;
         $position = Position::all();
         $data['position'] = $position;
 
