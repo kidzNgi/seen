@@ -7,9 +7,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<title>Admin</title>
+  <link rel="stylesheet" type="text/css" href="{{asset('css/checkbox.css')}}">
 	  <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('fonts/font-awesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin.css')}}">
+    <style type="text/css">
+
+    </style>
 </head>
 <body>
 <div class="wrap">

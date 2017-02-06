@@ -1,7 +1,7 @@
 
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default" style="height: 1500px;">
-                <div class="panel-heading">ตั้งค่ารูป Highlight</div>
+            <div class="panel panel-default">
+                <div class="panel-heading">ตั้งค่ารูป Slides</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/highlight') }}">
                         {{ csrf_field() }}

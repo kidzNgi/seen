@@ -40,7 +40,7 @@ class PersonalController extends Controller
         $position = Position::all();
         $data['position'] = $position;
 
-        return view('admin.personal.personal',$data);
+        return view('admin.personal.load_personal',$data);
         }
         return redirect('index');
         
