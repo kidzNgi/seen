@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Staff;
+use App\Position;
  
 
 class PersonalController extends Controller
@@ -23,7 +24,8 @@ class PersonalController extends Controller
         $users = User::select('id as user_id','first_name','last_name',''.$value.' as personal')->get();
         $data['users'] = $users;
         $data['value'] = $value;
-
+        $position = Position::all();
+        $data['position'] = $position;
         return view('admin.personal.personal',$data);
     }
 
@@ -38,10 +40,43 @@ class PersonalController extends Controller
     public function update(Request $request, $field)
     {
         //
+
         for($i=0;$i<$request['num'];$i++){
+            if($request['personal'][$i]==0){
+                   $staff=DB::table('staffs')->join('facuties', 'facuties.id', '=', 'staffs.facuty_id')->where([
+                    ['facuties.facuty', '=', $field],
+                    ['staffs.user_id','=',$request['userid'][$i]],
+                    ])->delete();
+            }
+            else if($request['personal'][$i]==1)
+            {  
 
-        $objs = DB::table('users')->where('id',$request['userid'][$i])->update([$field => $request['personal'][$i]]);
+                $staff = DB::table('staffs')->join('facuties', 'facuties.id', '=', 'staffs.facuty_id')->select(DB::raw('count(*) as count'))->where([
+                    ['facuties.facuty', '=', $field],
+                    ['staffs.user_id',$request['userid'][$i]],
+                    ])->get();
+                foreach ($staff as $key ) {
+                    # code...
+                    if($key->count==0){
+                        $facs= DB::table('facuties')->where('facuty',$field)->get(); 
+                    foreach ($facs as $fac) {
+                            Staff::create([
+                    'user_id' =>$request['userid'][$i],
 
+                    
+                
+                    'facuty_id' => $fac->id,
+                    'position_id' => $pos,
+                      ]);
+                    }
+                        }
+                    }
+                       
+                
+               /* 
+                echo "string";*/
+            }
+             $objs = DB::table('users')->where('id',$request['userid'][$i])->update([$field => $request['personal'][$i]]);
         }
         
         return redirect('Personal/'.$field);

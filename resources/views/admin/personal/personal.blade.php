@@ -25,9 +25,8 @@
 					<div class="table-responsive">
 					<table class="table table-striped">
 						<tbody>
+						@for($i=0;$i<sizeof($users);$i++)
 							<tr>
-							@for($i=0;$i<sizeof($users);$i++)
-							
 								<td style="margin-left: 20px;">
 									<div class="checkbox checkbox-success">
 									<input type="hidden" name="userid[]" id="userid{{$i}}" value="{{$users[$i]->user_id}}"> 
@@ -45,14 +44,19 @@
                     				</div>
                 
 							   	</td>
-							      @if($i==(sizeof($users)-1))@if($i%2==0)<td></td>@endif @endif
-							    @if($i%2!=0)
-							    	
-							   		 </tr><tr>
-							     @endif
-							 @endfor
-							 </tr>
+							   	<td>
+							   		<select class="form-control" id="position_id" name="position_id" >
+							   				<option value="">เลือกตำแหน่ง</option>
+							   		   @foreach($position as $pos)
+
+									    <option value='{{$pos->id}}'>{{$pos->position_name}}</option>
+									    @endforeach
+									 </select>
+							   	</td>
+							    
 							
+							 </tr>
+							 @endfor
 						</tbody>
 					</table>
 				</div>

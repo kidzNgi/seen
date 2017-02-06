@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDepartmentToUsers extends Migration
+class AddFacutyUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,11 @@ class AddDepartmentToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->integer('executive',1)->default(0);
-            $table->integer('envi',1)->default(0);
-            $table->integer('sci',1)->default(0);
-            $table->integer('energy',1)->default(0);
-            $table->integer('office',1)->default(0);
+            $table->integer('executive')->default(0);
+            $table->integer('envi')->default(0);
+            $table->integer('sci')->default(0);
+            $table->integer('energy')->default(0);
+            $table->integer('office')->default(0);
         });
     }
 

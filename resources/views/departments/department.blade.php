@@ -10,7 +10,7 @@
     <div class="container" style="padding-top: 100px;">
     
     <div class="panel panel-default">
-    <div class="panel-heading">a</div>
+    <div class="panel-heading">{{$department}}</div>
     <div class="panel-body">
     <div class="row">
     @foreach($user as $row)
