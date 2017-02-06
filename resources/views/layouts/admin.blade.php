@@ -12,8 +12,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/admin.css')}}">
 </head>
 <body>
-@section('sidebar')
-        @show
 <div class="wrap">
   <nav class="nav-bar navbar-inverse" role="navigation">
       <div id ="top-menu" class="container-fluid active">
@@ -34,67 +32,10 @@
               
           </ul>
       </div>      
-  </nav>
+  </nav>   
   @section('sidebar')
-        
-  <aside id="side-menu" class="aside" role="navigation">            
-        <ul class="nav nav-list accordion">                    
-          <li class="nav-header">
-            <div class="link"><i class="fa fa-lg fa-globe"></i>Portal<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-              <li><a href="#">Dashboard</a></li>  
-              <li><a href="#">Settings</a></li>  
-              <li><a href="#">Administration</a></li>  
-            </ul>
-          </li>
-          
-          <li class="nav-header">
-            <div class="link"><i class="fa fa-lg fa-users"></i>Users<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-              <li><a href="#">Users</a></li>
-              <li><a href="#">New User</a></li>
-            </ul>
-          </li>
-          
-          <li class="nav-header">
-            <div class="link"><i class="fa fa-cloud"></i>Sites<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-              <li><a href="#">Search Sites</a></li>
-              <li><a href="#">New Site</a></li>
-              <li><a href="#">Jobs</a></li>
-            </ul>
-          </li>  
-          
-           <li class="nav-header">
-            <div class="link"><i class="fa fa-lg fa-map-marker"></i>Zones<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-              <li><a href="#">Search Zones</a></li>
-              <li><a href="#">New Zone</a></li>
-            </ul>
-          </li>
-          
-          <li class="nav-header">
-            <div class="link"><i class="fa fa-lg fa-file-image-o"></i>Reports<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu">
-              <li><a href="#">Entries</a></li> 
-              <li><a href="#">Redirects</a></li> 
-              <li><a href="#">Pingbacks</a></li>          
-              <li><a href="#">Tags</a></li>
-            </ul>
-          </li>
-          
-      </ul>
-  </aside>
-  @show
-  <!--Body content-->
-  <div class="content">
-    <div class="top-bar">       
-      <a href="#menu" class="side-menu-link burger"> 
-        <span class='burger_inside' id='bgrOne'></span>
-        <span class='burger_inside' id='bgrTwo'></span>
-        <span class='burger_inside' id='bgrThree'></span>
-      </a>      
-    </div>
+@show     
+  
     <section class="content-inner">
      @yield('content')
     </section>
@@ -215,6 +156,6 @@ $(function() {
   
 });
 </script>
-
+@stack('scripts')
 </body>
 </html>

@@ -70,6 +70,16 @@ Route::get('sidebar', function() {
 return view('testlist');
 });
 
+Route::get('admin/seach_list', function() {
+    //
+return view('admin.list');
+});
+
+Route::get('admin/list', function() {
+    //
+return view('news.load_create');
+});
+
 
 Route::get('SearchUser','ImageController@test');
 Route::get('donwload-file', 'HomeController@downloadFile');
