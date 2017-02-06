@@ -61,13 +61,13 @@ return view('users.index');
 
 Route::get('test2', function() {
     //
-return view('test');
+return view('sidebar');
 });
-
+/*admin*/
 
 Route::get('sidebar', function() {
     //
-return view('sidebar');
+return view('testlist');
 });
 
 
